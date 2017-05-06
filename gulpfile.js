@@ -11,6 +11,7 @@ gulp.task('browser-sync', ['nodemon'], function() {
         baseDir: "./",
         files: ["*.*"],
         port: 7000,
+		notify: true
 	});
 });
 gulp.task('nodemon', function (cb) {
