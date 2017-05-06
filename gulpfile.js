@@ -1,30 +1,30 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
+var nodemon     = require('nodemon')
 
-// process JS files and return the stream.
-gulp.task('js', function () {
-    return gulp.src('js/*js')
-        .pipe(gulp.dest('dist/js'));
+gulp.task('default', ['browser-sync'], function () {
 });
 
-// create a task that ensures the `js` task is complete before
-// reloading browsers
-gulp.task('js-watch', ['js'], function (done) {
-    browserSync.reload();
-    done();
+gulp.task('browser-sync', ['nodemon'], function() {
+	browserSync.init(null, {
+		proxy: "http://localhost:5000",
+        baseDir: "./",
+        files: ["*.*"],
+        port: 7000,
+	});
 });
-
-// use default task to launch Browsersync and watch JS files
-gulp.task('default', [], function () {
-
-    // Serve files from the root of this project
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        }
-    });
-
-    // add browserSync.reload to the tasks array to make
-    // all browsers reload after tasks are complete.
-    gulp.watch("*.*", ['js-watch']);
+gulp.task('nodemon', function (cb) {
+	
+	var started = false;
+	
+	return nodemon({
+		script: 'index.js'
+	}).on('start', function () {
+		// to avoid nodemon being started multiple times
+		// thanks @matthisk
+		if (!started) {
+			cb();
+			started = true; 
+		} 
+	});
 });
