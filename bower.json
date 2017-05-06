@@ -20,6 +20,8 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "angular": "latest",
+    "jquery" : "latest"
   }
 }
