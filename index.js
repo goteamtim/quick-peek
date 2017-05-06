@@ -5,25 +5,26 @@ var flickrOptions = require('./config.js');
 var app = express();
 
 var port = process.env.PORT || 3000;
-Flickr.tokenOnly(flickrOptions, function (error, flickr) {
-//Flickr.authenticate(flickrOptions, function (error, flickr) {
+//Flickr.tokenOnly(flickrOptions, function (error, flickr) {
+Flickr.authenticate(flickrOptions, function (error, flickr) {
    if(error){
-       console.log(">>>>>>ERROR<<<<<<<<<<<")
+       console.log(">>>>>>ERROR<<<<<<<<<<<");
    }
 
     app.get('/getPhotos', function (req, res) {
         flickr.photos.search({
-            text: "red+panda"
+            text: "kauai+hawaii"
         }, function (err, result) {
             if (err) { throw new Error(err); }
             // do something with result
+            
             res.send(result);
         });
 
     });
 
     app.get("/", function (req, res) {
-        res.sendFile(__dirname + '/views/index.html')
+        res.sendFile(__dirname + '/views/index.html');
     });
 
     // static files
@@ -33,7 +34,7 @@ Flickr.tokenOnly(flickrOptions, function (error, flickr) {
     });
 
     app.listen(port, function () {
-        console.log('Example app listening on port 3000!');
+        console.log('Example app listening on port: ' + port);
     });
 
 

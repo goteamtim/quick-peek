@@ -6,11 +6,13 @@
     <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <!--<script type="text/javascript" src="./app/app.js"></script>-->
+    <script type="text/javascript" src="./app/app.js"></script>
+    <script type="text/javascript" src="./app/controllers/indexController.js"></script>
+    <script type="text/javascript" src="./app/controllers/mainController.js"></script>
 </head>
 
 <body ng-controller="indexCtrl">
-    <div ng-include="'main.html'" class="container-fluid"></div>
+    <div ng-include="'views/main/main.html'" class="container-fluid"></div>
     <div ng-view class="container-fluid"></div>
     <p>Wahoo something worked...</p>
 </body>

@@ -1,1 +1,1 @@
-var app = angular.module("quick-peek", []); 
+var app = angular.module("quick-peek", []);
