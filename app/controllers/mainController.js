@@ -1,8 +1,9 @@
 app.controller("mainCtrl", function ($scope, $http) {
-    $scope.getPhoto = function () {
-        $http.get('/getPhoto')
+    $scope.imageUrl;
+    $scope.getPhotos = function () {
+        $http.get('/getPhotos')
             .then(function (response) {
-
+                var photoArray = response.photos.photo;
             });
     }
 

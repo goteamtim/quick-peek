@@ -11,7 +11,7 @@ Flickr.tokenOnly(flickrOptions, function (error, flickr) {
        console.log(">>>>>>ERROR<<<<<<<<<<<")
    }
 
-    app.get('/driftly', function (req, res) {
+    app.get('/getPhotos', function (req, res) {
         flickr.photos.search({
             text: "red+panda"
         }, function (err, result) {
