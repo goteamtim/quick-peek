@@ -10,8 +10,13 @@
     "countdown",
     "timer"
   ],
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "bower": "^1.8.0",
+    "express": "^4.15.2",
+    "flickrapi": "^0.6.0",
     "gulp": "^3.9.1"
   },
   "author": "Tim Harshman",
