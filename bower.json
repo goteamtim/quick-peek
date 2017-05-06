@@ -1,0 +1,25 @@
+{
+  "name": "quick-peek",
+  "description": "A smarter countdown timer with views into your destination.",
+  "main": "app.js",
+  "authors": [
+    "Tim Harshman"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "countdown",
+    "timer"
+  ],
+  "homepage": "views/index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

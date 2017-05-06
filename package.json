@@ -1,0 +1,19 @@
+{
+  "name": "quick-peek",
+  "version": "0.0.1",
+  "description": "A smarter countdown timer with views into your destination.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "countdown",
+    "timer"
+  ],
+  "dependencies": {
+    "bower": "^1.8.0",
+    "gulp": "^3.9.1"
+  },
+  "author": "Tim Harshman",
+  "license": "ISC"
+}
