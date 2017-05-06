@@ -3,16 +3,17 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="/static/<%= grunt.config.get('pkg.name') %>.css" />
-    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/bower_components//<%= grunt.config.get('pkg.name') %>.js"></script>
+    <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="./app/app.js"></script>
 </head>
 
 <body ng-controller="AppCtrl">
     <div ng-include="'header.tpl.html'"></div>
     <div ng-include="'main.html'" class="container-fluid"></div>
     <div ng-view class="container-fluid"></div>
+    <p>Wahoo something worked...</p>
 </body>
 
 </html>

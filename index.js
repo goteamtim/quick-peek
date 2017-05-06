@@ -5,13 +5,11 @@ var flickrOptions = require('./config.js');
 var app = express();
 
 var port = process.env.PORT || 3000;
-
-Flickr.authenticate(flickrOptions, function (error, flickr) {
-    // we can now use "flickr" as our API object
-    //Handle error here
-    app.get('/', function (req, res) {
-        res.send('Hello World!');
-    });
+Flickr.tokenOnly(flickrOptions, function (error, flickr) {
+//Flickr.authenticate(flickrOptions, function (error, flickr) {
+   if(error){
+       console.log(">>>>>>ERROR<<<<<<<<<<<")
+   }
 
     app.get('/driftly', function (req, res) {
         flickr.photos.search({
@@ -25,7 +23,7 @@ Flickr.authenticate(flickrOptions, function (error, flickr) {
     });
 
     app.get("/", function (req, res) {
-        res.sendFile('index.htm')
+        res.sendFile(__dirname + '/views/index.html')
     });
 
     // static files
