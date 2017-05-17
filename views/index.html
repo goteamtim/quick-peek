@@ -2,7 +2,8 @@
 <html lang="en" ng-app="quick-peek">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="views/index.css" />
+    
+    <link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -12,12 +13,13 @@
     <style>
         @import url('https://fonts.googleapis.com/css?family=Ubuntu:300');
     </style>
+    <link rel="stylesheet" type="text/css" href="views/index.css" />
 </head>
 
 <body ng-controller="indexCtrl">
     
     <div ng-view class="container-fluid">
-        <div ng-include="'views/main/main.html'" class="container-fluid"></div>
+        <div ng-include="'views/main/main.html'" class="row"></div>
     </div>
 
 </body>
