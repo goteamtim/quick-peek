@@ -9,12 +9,17 @@
     <script type="text/javascript" src="./app/app.js"></script>
     <script type="text/javascript" src="./app/controllers/indexController.js"></script>
     <script type="text/javascript" src="./app/controllers/mainController.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Ubuntu:300');
+    </style>
 </head>
 
 <body ng-controller="indexCtrl">
-    <div ng-include="'views/main/main.html'" class="container-fluid"></div>
-    <div ng-view class="container-fluid"></div>
-    <p>Wahoo something worked...</p>
+    
+    <div ng-view class="container-fluid">
+        <div ng-include="'views/main/main.html'" class="container-fluid"></div>
+    </div>
+
 </body>
 
 </html>
