@@ -8,6 +8,11 @@ p {
 }
 
 #main-image {
-    width: 100%;
-    height: 100%;
+    
 }
+
+.grid-item { 
+  width: 33%;
+  float: right;
+ }
+.grid-item--width2 { width: 400px; }

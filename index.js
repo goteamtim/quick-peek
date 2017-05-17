@@ -13,7 +13,7 @@ Flickr.authenticate(flickrOptions, function (error, flickr) {
 
     app.get('/getPhotos', function (req, res) {
         flickr.photos.search({
-            text: "kauai+hawaii"
+            text: "kauai+hawaii+beach"
         }, function (err, result) {
             if (err) { throw new Error(err); }
             // do something with result

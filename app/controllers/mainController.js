@@ -10,7 +10,7 @@ app.controller("mainCtrl", function ($scope, $http) {
             });
     }
 
-    function buildImageUrl(farmId,serverId,id,secret) {
+    $scope.buildImageUrl = function(farmId,serverId,id,secret) {
         return 'https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + id + '_' + secret +'.jpg';
     }
 
@@ -22,10 +22,10 @@ app.controller("mainCtrl", function ($scope, $http) {
     function init(){
         $http.get('/getPhotos')
             .then(function (response) {
-                photosArray = response.data.photos.photo;
+                $scope.photosArray = response.data.photos.photo;
                 var rand = Math.floor(Math.random()*photosArray.length);
-                var url = buildImageUrl(photosArray[rand].farm,photosArray[rand].server,photosArray[rand].id,photosArray[rand].secret);
-                displayImage(url);
+                var url = $scope.buildImageUrl(photosArray[rand].farm,photosArray[rand].server,photosArray[rand].id,photosArray[rand].secret);
+                //displayImage(url);
                 countdownTimer();
             });
     }
@@ -39,6 +39,10 @@ app.controller("mainCtrl", function ($scope, $http) {
         var futureDate = localStorage.getItem("futureDate");
         $scope.currentCountdownTimeElement = timeUntilDate(futureDate);
         setTimeout(countdownTimer,1000);
+    }
+
+    function displayGrid(photoArray){
+
     }
 
     init();
