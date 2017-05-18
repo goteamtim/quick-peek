@@ -1,4 +1,7 @@
 module.exports = {
     api_key: "",
-    secret: ""
+    secret: "",
+    user_id: "...",
+      access_token: "...",
+      access_token_secret: "..."
 }
