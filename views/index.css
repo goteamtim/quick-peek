@@ -1,6 +1,4 @@
-body {
-    background-color: black;
-}
+
 
 p {
      font-family: 'Ubuntu', sans-serif;
@@ -15,4 +13,10 @@ p {
   width: 33%;
   float: right;
  }
-.grid-item--width2 { width: 400px; }
+.grid-item--width2 { 
+    width: 400px;
+    }
+
+.carddemoBasicUsage .card-media {
+    background-color: #999999; 
+  }

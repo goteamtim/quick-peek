@@ -1,13 +1,76 @@
-<div  id="main-row" ng-controller="mainCtrl">
-    <div class="col-sm-9 col-md-9 col-lg-9">
-        <img ng-src="" alt="" id="main-image">
-        <div class="grid">
-            <div ng-repeat="image in photosArray" class="grid-item">
-                <img ng-src="{{buildImageUrl(image.farm, image.server, image.id, image.secret)}}" alt="">
-            </div>
+<md-content class="md-padding" layout-xs="column" layout="row" ng-controller="mainCtrl">
+    <div flex-xs flex-gt-xs="70" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Card with image</span>
+                    <span class="md-subhead">Large</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-lg card-media"></div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>Action 1</md-button>
+                <md-button>Action 2</md-button>
+            </md-card-actions>
+        </md-card>
+        <md-card md-theme="default">
+            <md-card-title>
+                <md-card-title-text class="md-accent">
+                    <span class="md-headline">Card with image</span>
+                    <span class="md-subhead">Extra Large</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content layout="row" layout-align="space-between">
+                <div class="md-media-xl card-media"></div>
+
+                <md-card-actions layout="column">
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <!--<md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>-->
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Settings">
+                        <!--<md-icon md-svg-icon="img/icons/menu.svg"></md-icon>-->
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <!--<md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>-->
+                    </md-button>
+                </md-card-actions>
+            </md-card-content>
+        </md-card>
+    </div>
+    <div flex-xs flex-gt-xs="30" layout="column">
+        <md-card md-theme="default">
+            <md-card-header class="400">
+                <md-card-avatar>
+                    <md-icon class="md-avatar-icon" ></md-icon>
+                </md-card-avatar>
+                <md-card-header-text class="md-primary">
+                    <span class="md-title">Title</span>
+                    <span class="md-subhead">subhead</span>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Only...</span>
+                    <span class="md-subhead">{{currentCountdownTimeElement}}</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-md card-media"></div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>New Image</md-button>
+            </md-card-actions>
+        </md-card>
+        <div layout layout-padding layout-align="center end" style="height:200px">
+            <md-checkbox ng-model="showDarkTheme">Like to play a game?</md-checkbox>
         </div>
     </div>
-    <div class="col-sm-3 col-md-3 col-lg-3">
-        <p>{{currentCountdownTimeElement}}</p>
-    </div>
-</div>
+</md-content>
+<!--<div class="grid">
+            <div ng-repeat="image in photosArray" class="grid-item">
+                <img ng-src="{{buildImageUrl(image.farm, image.server, image.id, image.secret)}}" alt="">
+
+            </div>
+        </div>-->

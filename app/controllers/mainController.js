@@ -10,42 +10,40 @@ app.controller("mainCtrl", function ($scope, $http) {
             });
     }
 
-    $scope.buildImageUrl = function(farmId,serverId,id,secret) {
-        return 'https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + id + '_' + secret +'.jpg';
+    $scope.buildImageUrl = function (farmId, serverId, id, secret) {
+        return 'https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + id + '_' + secret + '.jpg';
     }
 
-    function displayImage(imageUrl){
+    function displayImage(imageUrl) {
         var element = document.querySelector('#main-image');
         element.src = imageUrl;
     }
 
-    function init(){
+    function init() {
         $http.get('/getPhotos')
             .then(function (response) {
-                if(Object.getOwnPropertyNames(response.data).filter(function(key){return key === 'photos';}) > 0){
+                //Handle for errors here in response
                     $scope.photosArray = response.data.photos.photo;
-                    var rand = Math.floor(Math.random()*photosArray.length);
-                    var url = $scope.buildImageUrl(photosArray[rand].farm,photosArray[rand].server,photosArray[rand].id,photosArray[rand].secret);
+                    var rand = Math.floor(Math.random() * $scope.photosArray.length);
+                    var url = $scope.buildImageUrl($scope.photosArray[rand].farm, $scope.photosArray[rand].server, $scope.photosArray[rand].id, $scope.photosArray[rand].secret);
                     //displayImage(url);
                     countdownTimer();
-                }else{
-                    console.log("Error:\n",response);
-                }
+
             });
     }
 
-    function timeUntilDate(futureDate){
+    function timeUntilDate(futureDate) {
         var now = Date.now();
         return futureDate - now;
     }
 
-    function countdownTimer(){
+    function countdownTimer() {
         var futureDate = localStorage.getItem("futureDate");
         $scope.currentCountdownTimeElement = timeUntilDate(futureDate);
-        setTimeout(countdownTimer,1000);
+        setTimeout(countdownTimer, 1000);
     }
 
-    function displayGrid(photoArray){
+    function displayGrid(photoArray) {
 
     }
 
