@@ -1,8 +1,28 @@
-<div  id="main-row" ng-controller="setupCtrl">
-    <div class="col-sm-9 col-md-9 col-lg-9">
-        <img ng-src="" alt="" id="main-image">
+<md-content class="md-padding" layout-xs="column" layout="row" ng-controller="setupCtrl">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        
+        <md-card md-theme="default">
+            <md-card-title>
+                <md-card-title-text class="md-accent">
+                    <span class="md-headline">Setup</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content layout="row" layout-align="space-between">
+                <div class="md-media-xl card-media"></div>
+
+                <md-card-actions layout="column">
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <!--<md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>-->
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Settings">
+                        <!--<md-icon md-svg-icon="img/icons/menu.svg"></md-icon>-->
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <!--<md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>-->
+                    </md-button>
+                </md-card-actions>
+            </md-card-content>
+        </md-card>
     </div>
-    <div class="col-sm-3 col-md-3 col-lg-3">
-        <p>{{currentCountdownTimeElement}}</p>
-    </div>
-</div>
+    
+</md-content>

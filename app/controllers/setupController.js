@@ -1,3 +1,3 @@
-app.controller("indexCtrl", function($scope) {
+app.controller("setupCtrl", function($scope) {
     
 });
