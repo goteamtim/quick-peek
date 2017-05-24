@@ -26,7 +26,7 @@ app.controller("mainCtrl", function ($scope, $http) {
                     $scope.photosArray = response.data.photos.photo;
                     var rand = Math.floor(Math.random() * $scope.photosArray.length);
                     var url = $scope.buildImageUrl($scope.photosArray[rand].farm, $scope.photosArray[rand].server, $scope.photosArray[rand].id, $scope.photosArray[rand].secret);
-                    //displayImage(url);
+                    displayImage(url);
                     countdownTimer();
 
             });
@@ -41,10 +41,6 @@ app.controller("mainCtrl", function ($scope, $http) {
         var futureDate = localStorage.getItem("futureDate");
         $scope.currentCountdownTimeElement = timeUntilDate(futureDate);
         setTimeout(countdownTimer, 1000);
-    }
-
-    function displayGrid(photoArray) {
-
     }
 
     init();
