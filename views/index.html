@@ -15,7 +15,8 @@
 <body ng-controller="indexCtrl">
     
     <div ng-view class="container-fluid">
-        <div ng-include="'views/main/main.html'" class="row"></div>
+        <div ng-include="'views/main/main.html'" class="row" ng-show="view == 'main'"></div>
+        <div ng-include="'views/setup/setup.html'" class="row" ng-show="view == 'setup'"></div>
     </div>
     
     <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
