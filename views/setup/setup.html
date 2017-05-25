@@ -14,7 +14,7 @@
                 <div>
                     <form name="userForm">
 
-                        <div layout-gt-xs="row">
+                        <div layout-gt-sm="row">
                             <md-input-container class="md-block" flex-gt-xs>
                                 <label>Destination</label>
                                 <input ng-model="user.destination">
@@ -43,11 +43,7 @@
 
                             <md-input-container class="md-block" flex-gt-sm>
                                 <label>State</label>
-                                <md-select ng-model="user.state">
-                                    <md-option ng-repeat="state in states" value="{{state.abbrev}}">
-                                        {{state.abbrev}}
-                                    </md-option>
-                                </md-select>
+                                <input ng-model="user.state">
                             </md-input-container>
 
                             <md-input-container class="md-block" flex-gt-sm>
@@ -62,7 +58,7 @@
                                 </div>
                             </md-input-container>
                         </div>
-
+                        <md-button type="button" ng-click="saveSettings(user)" value="Save">Save</md-button>
                     </form>
                 </div>
             </md-card-content>
