@@ -1,0 +1,1 @@
+Simple countdown timer with a display.  Enter in the destination of your vacation and see images from the location.
