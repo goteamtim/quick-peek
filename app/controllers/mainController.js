@@ -55,5 +55,4 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
 
     
     init();
-    //setTimeout(,20000)
 });
