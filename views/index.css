@@ -18,6 +18,23 @@ p {
     width: 400px;
     }
 
-.carddemoBasicUsage .card-media {
+body {
     background-color: #999999; 
+  }
+
+.md-media-xl {
+      height: 100% !important;
+      width: 100% !important;
+  }
+
+  #main-card {
+      max-height: 100% !important;
+  }
+
+  #main-container, #main-container > div {
+      height: 100%;
+  }
+
+  md-content {
+      height: 100%;
   }
