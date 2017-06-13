@@ -38,3 +38,12 @@ body {
   md-content {
       height: 100%;
   }
+
+  .heading {
+      font-family: 'Amatic SC', cursive;
+      font-weight: 700 !important;
+  }
+
+  .small-heading {
+      font-family: 'Open Sans Condensed', sans-serif;
+  }

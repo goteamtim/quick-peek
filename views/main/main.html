@@ -4,8 +4,8 @@
         <md-card md-theme="default" flex="70" id="main-card">
             <md-card-title>
                 <md-card-title-text class="md-accent">
-                    <span class="md-headline">Here is what you have to look forward to!</span>
-                    <span class="md-subhead">{{imageTitle}}</span>
+                    <span class="md-headline heading">Here is what you have to look forward to!</span>
+                    <span class="md-subhead small-heading">{{imageTitle}}</span>
                 </md-card-title-text>
             </md-card-title>
             <md-card-content layout="row" layout-align="space-between">
@@ -33,7 +33,7 @@
                     <div class="md-media-md card-media"></div>
                 </md-card-title-media>
             </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
+            <md-card-actions layout="row" layout-align="end center" class="heading">
                 <md-button ng-click="changeView('setup')">Settings</md-button>
                 <md-button ng-click="displayRandomImage()">New Image</md-button>
             </md-card-actions>
