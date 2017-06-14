@@ -24,6 +24,7 @@
     "angular": "latest",
     "jquery": "latest",
     "angular-material": "^1.1.4",
-    "masonry": "^4.2.0"
+    "masonry": "^4.2.0",
+    "weather-icons" :"latest"
   }
 }
