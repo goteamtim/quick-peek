@@ -38,7 +38,27 @@
                 <md-button ng-click="displayRandomImage()">New Image</md-button>
             </md-card-actions>
         </md-card>
-        
+       <!-- Weather Card -->
+        <md-card md-theme="default">
+            <md-card-header class="300">
+                
+                <md-card-header-text class="md-primary">
+                    <span class="md-title">{{weatherLocationTitle}}</span>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Only...</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-md card-media"></div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center" class="heading">
+                <md-button ng-click="changeView('setup')">Settings</md-button>
+                <md-button ng-click="displayRandomImage()">New Image</md-button>
+            </md-card-actions>
+        </md-card>
     </div>
 </md-content>
 <!--<div class="grid">

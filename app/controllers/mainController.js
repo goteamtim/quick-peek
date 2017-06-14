@@ -1,6 +1,7 @@
 app.controller("mainCtrl", function ($scope, $http, $timeout) {
     $scope.imageUrl;
     $scope.imageTitle = "Loading...";
+    $scope.weatherLocationTitle = "";
     $scope.photosArray = [];
     $scope.timeLeft = {};
     $scope.getPhotos = function () {
