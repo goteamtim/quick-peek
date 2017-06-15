@@ -1,7 +1,7 @@
 app.controller("mainCtrl", function ($scope, $http, $timeout) {
     $scope.imageUrl;
     $scope.imageTitle = "Loading...";
-    $scope.weatherLocationTitle = "";
+    $scope.userSettings = localStorage.getItem("quickPeekUserSettings") || {};
     $scope.photosArray = [];
     $scope.timeLeft = {};
     $scope.getPhotos = function () {

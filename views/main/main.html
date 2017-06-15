@@ -14,6 +14,7 @@
         </md-card>
     </div>
     <div flex-xs flex-gt-xs="30" layout="column">
+        <!-- Countdown card -->        
         <md-card md-theme="default">
             <md-card-header class="400">
                 <md-card-avatar>
@@ -29,15 +30,13 @@
                     <span class="md-headline">Only...</span>
                     <span class="md-subhead">{{timeLeft.daysLeft}}d {{timeLeft.hoursLeft}}h {{timeLeft.minutesLeft}}m {{timeLeft.secondsLeft}}s</span>
                 </md-card-title-text>
-                <md-card-title-media>
-                    <div class="md-media-md card-media"></div>
-                </md-card-title-media>
             </md-card-title>
             <md-card-actions layout="row" layout-align="end center" class="heading">
                 <md-button ng-click="changeView('setup')">Settings</md-button>
                 <md-button ng-click="displayRandomImage()">New Image</md-button>
             </md-card-actions>
         </md-card>
+        <!-- Countdown card -->
        <!-- Weather Card -->
         <md-card md-theme="default">
             <md-card-header class="300">
