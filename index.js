@@ -1,11 +1,11 @@
 var express = require('express');
 var Flickr = require('flickrapi');
-var flickrOptions = require('./config.js');
+var config = require('./config.js');
 var app = express();
 
 var port = process.env.PORT || 3000;
 //Flickr.tokenOnly(flickrOptions, function (error, flickr) {
-Flickr.authenticate(flickrOptions, function (error, flickr) {
+Flickr.authenticate(config.flickr_options, function (error, flickr) {
     if (error) {
         console.log(">>>>>>ERROR<<<<<<<<<<<");
     }
@@ -22,8 +22,8 @@ Flickr.authenticate(flickrOptions, function (error, flickr) {
 
     });
 
-    app.get('/weather/:apiKey/:location', function (req, res) {
-        updateWeatherData(req.params.apiKey, req.params.location);
+    app.get('/weather/:location/:apiKey', function (req, res) {
+        updateWeatherData(req.params.apiKey || config.weather_api_key, req.params.location);
         if (req.params.apiKey !== null) {
             userData.weatherAPIKey = req.params.apiKey;
         }
