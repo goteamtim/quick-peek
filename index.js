@@ -1,7 +1,6 @@
 var express = require('express');
 var Flickr = require('flickrapi');
 var flickrOptions = require('./config.js');
-console.log(flickrOptions);
 var app = express();
 
 var port = process.env.PORT || 3000;
