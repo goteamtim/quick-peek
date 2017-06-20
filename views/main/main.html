@@ -47,7 +47,8 @@
             </md-card-header>
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">Only...</span>
+                    <span class="md-headline">{{weather[0].data.currently.temperature || "Summary..."}}</span>
+                    <span class="md-headline">{{weather[0].data.currently.summary || "Summary..."}}</span>
                 </md-card-title-text>
                 <md-card-title-media>
                     <div class="md-media-md card-media"></div>

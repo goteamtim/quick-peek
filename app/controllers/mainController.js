@@ -1,13 +1,27 @@
 app.controller("mainCtrl", function ($scope, $http, $timeout) {
     $scope.imageUrl;
     $scope.imageTitle = "Loading...";
-    $scope.userSettings = localStorage.getItem("quickPeekUserSettings") || {};
+    $scope.userSettings = JSON.parse(localStorage.getItem("quickPeekUserSettings")) || {};    
     $scope.photosArray = [];
     $scope.timeLeft = {};
+    $scope.weather = [];
     $scope.getPhotos = function () {
         $http.get('/getPhotos')
             .then(function (response) {
                 photosArray = response.data.photos.photo;
+
+            });
+    };
+
+    $scope.getWeather = function(location){
+        //sanitize location
+
+        $http.get('/weather/'+encodeURI(location))
+            .then(function (response) {
+                console.log("Call to Photos Response \n ",response)
+                //Handle for errors here in response
+                    $scope.weather.push(response);
+                    console.log($scope.weather)
 
             });
     }
@@ -33,13 +47,14 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
             .then(function (response) {
                 //Handle for errors here in response
                     $scope.photosArray = response.data.photos.photo;
-                    console.log(response.data)
+                    console.log(response.data);
                     var rand = Math.floor(Math.random() * $scope.photosArray.length);
                     var url = $scope.buildImageUrl($scope.photosArray[rand].farm, $scope.photosArray[rand].server, $scope.photosArray[rand].id, $scope.photosArray[rand].secret);
                     displayImage(url,$scope.photosArray[rand].title);
                     updateCountdownTime();
 
             });
+        $scope.getWeather($scope.userSettings.homeWeatherLoc);
     }
 
     function breakdownTimeUntilDate(futureDate) {
@@ -52,7 +67,7 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
     }
 
     function updateCountdownTime() {
-        var destinationDate = JSON.parse(localStorage.getItem("quickPeekUserSettings")).endDate || {};
+        var destinationDate = $scope.userSettings.endDate || {};
         breakdownTimeUntilDate(destinationDate);
         $timeout(updateCountdownTime, 1000);
     }

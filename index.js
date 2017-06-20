@@ -1,6 +1,7 @@
 var express = require('express');
 var Flickr = require('flickrapi');
 var config = require('./config.js');
+var request = require('request');
 var app = express();
 
 var port = process.env.PORT || 3000;
@@ -23,12 +24,39 @@ Flickr.authenticate(config.flickr_options, function (error, flickr) {
     });
 
     app.get('/weather/:location/:apiKey', function (req, res) {
-        updateWeatherData(req.params.apiKey || config.weather_api_key, req.params.location);
-        if (req.params.apiKey !== null) {
-            userData.weatherAPIKey = req.params.apiKey;
-        }
+        // updateWeatherData(req.params.apiKey || config.weather_api_key, req.params.location);
+        // if (req.params.apiKey !== null) {
+        //     userData.weatherAPIKey = req.params.apiKey;
+        // }
 
-        res.send(userData.weather);
+        // res.send(userData.weather);
+        
+        request('https://api.forecast.io/forecast/' + config.weather_api_key + '/' + req.params.location, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            res.send(body);
+        } else { 
+            res.send(error);
+            console.log("API call to weather not working.\n" + error); 
+        }
+        });
+    });
+
+    app.get('/weather/:location', function (req, res) {
+        // updateWeatherData(config.weather_api_key, req.params.location);
+        // console.log("Weather: ",userData.weather);
+        // res.send(userData.weather);
+        console.log("API Key: ",config.weather_api_key )
+
+        request('https://api.forecast.io/forecast/' + config.weather_api_key + '/' + req.params.location, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log("Sending Body");
+            res.send(body);
+        } else { 
+            res.send(response);
+            console.log("API call to weather not working.\n" + error); 
+            console.log("API call to weather not working.\n" + response); 
+        }
+        });
     });
 
     app.get("/", function (req, res) {
