@@ -21,7 +21,7 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
                 console.log("Call to Photos Response \n ",response)
                 //Handle for errors here in response
                     $scope.weather.push(response);
-                    console.log($scope.weather)
+                    console.log($scope.weather);
 
             });
     }
