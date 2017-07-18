@@ -42,12 +42,12 @@
             <md-card-header class="300">
                 
                 <md-card-header-text class="md-primary">
-                    <span class="md-title">{{weatherLocationTitle || "Location"}}</span>
+                    <span class="md-title">{{userSettings.weatherLocationTitle || "Location"}}</span>
                 </md-card-header-text>
             </md-card-header>
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">{{weather[0].data.currently.apparentTemperature  || "Loading Temp..."}}</span>
+                    <span class="md-headline">{{(weather[0].data.currently.apparentTemperature | number:0)  || "Loading Temp..."}}</span>
                     <span class="md-headline">{{weather[0].data.currently.summary || "Loading Summary..."}}</span>
                 </md-card-title-text>
                 <md-card-title-media>
