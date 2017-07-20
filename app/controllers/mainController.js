@@ -15,9 +15,12 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
 
     $scope.getWeather = function(location){
         //sanitize location
-
+        //
         $http.get('/weather/'+encodeURI(location))
             .then(function (response) {
+                if(response.data.statusCode == '403'){
+                console.log("403 is happening");
+            }
                 console.log("Call to Photos Response \n ",response)
                 //Handle for errors here in response
                     $scope.weather.push(response);
