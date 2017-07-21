@@ -20,11 +20,12 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
             .then(function (response) {
                 if(response.data.statusCode == '403'){
                 console.log("403 is happening");
-            }
-                console.log("Call to Photos Response \n ",response)
+                }
+                //console.log("Call to Photos Response \n ",response)
                 //Handle for errors here in response
                     $scope.weather.push(response);
-                    console.log($scope.weather);
+                    displayWeatherIcon($scope.weather[0].data.currently.icon)
+                    //console.log($scope.weather);
 
             });
     }
@@ -38,6 +39,12 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
     $scope.buildImageUrl = function (farmId, serverId, id, secret) {
         return 'https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + id + '_' + secret + '.jpg';
     }
+
+    displayWeatherIcon = function(icon){
+        var skycons = new Skycons({"color": "navy"});
+        skycons.add("weather-icon", icon);
+        skycons.play();
+    };
 
     function displayImage(imageUrl,title) {
         $scope.imageTitle = title;

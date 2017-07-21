@@ -51,9 +51,8 @@
                     <span class="md-headline">{{weather[0].data.currently.summary || "Loading Summary..."}}</span>
                 </md-card-title-text>
                 <md-card-title-media>
-                    <div class="md-media-md card-media"><i class="wi" ng-class="'wi-'+weather[0].data.currently.icon"></i></div>
+                    <div class="md-media-md card-media"><canvas id="weather-icon" height="112px" width="112px"></canvas></div>
                 </md-card-title-media>
-                
             </md-card-title>
             <md-card-content>
                     <span class="md-subline"><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a></span>
