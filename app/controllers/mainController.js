@@ -18,14 +18,16 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
         //
         $http.get('/weather/'+encodeURI(location))
             .then(function (response) {
-                if(response.data.statusCode == '403'){
-                console.log("403 is happening");
-                }
-                //console.log("Call to Photos Response \n ",response)
+                if(response.data.statusCode != '200'){
+                console.log(response.data.statusCode + ": " + JSON.parse(response.data.body).error);
+                }else{
+                    //console.log("Call to Photos Response \n ",response)
                 //Handle for errors here in response
                     $scope.weather.push(response);
                     displayWeatherIcon($scope.weather[0].data.currently.icon)
                     //console.log($scope.weather);
+                }
+                
 
             });
     }
