@@ -21,14 +21,9 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
                 if(response.status != '200'){
                 console.log(response.data.statusCode + ": " + response.data.body);
                 }else{
-                    //console.log("Call to Photos Response \n ",response)
-                //Handle for errors here in response
                     $scope.weather.push(response);
-                    displayWeatherIcon($scope.weather[0].data.currently.icon)
-                    //console.log($scope.weather);
+                    displayWeatherIcon($scope.weather[0].data.currently.icon);
                 }
-                
-
             });
     }
 
@@ -55,7 +50,7 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
     }
 
     function init() {
-        $http.get('/getPhotos')
+        $http.get('/getPhotos/' + $scope.userSettings.destination)
             .then(function (response) {
                 //Handle for errors here in response
                     $scope.photosArray = response.data.photos.photo;
