@@ -18,8 +18,8 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
         //
         $http.get('/weather/'+encodeURI(location))
             .then(function (response) {
-                if(response.data.statusCode != '200'){
-                console.log(response.data.statusCode + ": " + JSON.parse(response.data.body).error);
+                if(response.status != '200'){
+                console.log(response.data.statusCode + ": " + response.data.body);
                 }else{
                     //console.log("Call to Photos Response \n ",response)
                 //Handle for errors here in response
