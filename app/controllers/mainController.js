@@ -71,11 +71,11 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
 
     function breakdownTimeUntilDate(futureDate) {
         var now = Date.now();
-        $scope.timeLeft.totalTime = new Date(new Date(futureDate) - now).getTime();
-        $scope.timeLeft.daysLeft = Math.floor($scope.timeLeft.totalTime / (1000 * 60 * 60 * 24));
-        $scope.timeLeft.hoursLeft = Math.floor(($scope.timeLeft.totalTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        $scope.timeLeft.minutesLeft = Math.floor(($scope.timeLeft.totalTime % (1000 * 60 * 60)) / (1000 * 60));
-        $scope.timeLeft.secondsLeft = Math.floor(($scope.timeLeft.totalTime % (1000 * 60)) / 1000);
+        $scope.timeLeft.total = new Date(new Date(futureDate) - now).getTime();
+        $scope.timeLeft.days = Math.floor($scope.timeLeft.total / (1000 * 60 * 60 * 24));
+        $scope.timeLeft.hours = Math.floor(($scope.timeLeft.total % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        $scope.timeLeft.minutes = Math.floor(($scope.timeLeft.total % (1000 * 60 * 60)) / (1000 * 60));
+        $scope.timeLeft.seconds = Math.floor(($scope.timeLeft.total % (1000 * 60)) / 1000);
     }
 
     function updateCountdownTime() {
