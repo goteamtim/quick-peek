@@ -19,7 +19,8 @@ p {
     }
 
 body {
-    background-color: #999999; 
+    background-color: #999999;
+    font-family: 'Ubuntu';
   }
 
 .md-media-xl {
@@ -40,7 +41,6 @@ body {
   }
 
   .heading {
-      font-family: 'Amatic SC', cursive;
       font-weight: 700 !important;
   }
 
