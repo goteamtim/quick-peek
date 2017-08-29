@@ -11,9 +11,28 @@ Flickr.authenticate(config.flickr_options, function (error, flickr) {
         console.log(">>>>>>ERROR<<<<<<<<<<<");
     }
 
-    app.get('/getPhotos', function (req, res) {
+    app.get('/getPhotos/:location', function (req, res) {
         flickr.photos.search({
-            text: "saint+thomas+islands"
+            //text: req.params.location || "",
+            lat: "", //req.params.location needed here to get lat and long for api call
+            lon: ""
+        }, function (err, result) {
+            if (err) { throw new Error(err); }
+            // do something with result
+
+            res.send(result);
+        });
+
+    });
+
+    app.get('/getPhotos/', function (req, res) {
+        flickr.photos.search({
+            //text: req.params.location || "",
+            lat: "", //
+            lon: "",
+            radius: "32",
+            content_type: 1,
+            accuracy: 6
         }, function (err, result) {
             if (err) { throw new Error(err); }
             // do something with result
