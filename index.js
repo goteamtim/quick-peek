@@ -13,6 +13,7 @@ Flickr.authenticate(config.flickr_options, function (error, flickr) {
 
     app.get('/getPhotos/:location', function (req, res) {
         flickr.photos.search({
+<<<<<<< HEAD
             //text: req.params.location || "",
             lat: "", //req.params.location needed here to get lat and long for api call
             lon: ""
@@ -33,6 +34,9 @@ Flickr.authenticate(config.flickr_options, function (error, flickr) {
             radius: "32",
             content_type: 1,
             accuracy: 6
+=======
+            text: req.params.location
+>>>>>>> 930e3261b9919077e21163ee7de71c3c15f097fe
         }, function (err, result) {
             if (err) { throw new Error(err); }
             // do something with result

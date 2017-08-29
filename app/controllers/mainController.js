@@ -18,15 +18,12 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
         //
         $http.get('/weather/'+encodeURI(location))
             .then(function (response) {
-                if(response.data.statusCode == '403'){
-                console.log("403 is happening");
-                }
-                //console.log("Call to Photos Response \n ",response)
-                //Handle for errors here in response
+                if(response.status != '200'){
+                console.log(response.data.statusCode + ": " + response.data.body);
+                }else{
                     $scope.weather.push(response);
-                    displayWeatherIcon($scope.weather[0].data.currently.icon)
-                    //console.log($scope.weather);
-
+                    displayWeatherIcon($scope.weather[0].data.currently.icon);
+                }
             });
     }
 
@@ -53,7 +50,7 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
     }
 
     function init() {
-        $http.get('/getPhotos/'+$scope.userSettings.destination)
+        $http.get('/getPhotos/' + $scope.userSettings.destination)
             .then(function (response) {
                 //Handle for errors here in response
                     $scope.photosArray = response.data.photos.photo;
@@ -69,11 +66,11 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
 
     function breakdownTimeUntilDate(futureDate) {
         var now = Date.now();
-        $scope.timeLeft.totalTime = new Date(new Date(futureDate) - now).getTime();
-        $scope.timeLeft.daysLeft = Math.floor($scope.timeLeft.totalTime / (1000 * 60 * 60 * 24));
-        $scope.timeLeft.hoursLeft = Math.floor(($scope.timeLeft.totalTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        $scope.timeLeft.minutesLeft = Math.floor(($scope.timeLeft.totalTime % (1000 * 60 * 60)) / (1000 * 60));
-        $scope.timeLeft.secondsLeft = Math.floor(($scope.timeLeft.totalTime % (1000 * 60)) / 1000);
+        $scope.timeLeft.total = new Date(new Date(futureDate) - now).getTime();
+        $scope.timeLeft.days = Math.floor($scope.timeLeft.total / (1000 * 60 * 60 * 24));
+        $scope.timeLeft.hours = Math.floor(($scope.timeLeft.total % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        $scope.timeLeft.minutes = Math.floor(($scope.timeLeft.total % (1000 * 60 * 60)) / (1000 * 60));
+        $scope.timeLeft.seconds = Math.floor(($scope.timeLeft.total % (1000 * 60)) / 1000);
     }
 
     function updateCountdownTime() {
