@@ -6,7 +6,7 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
     $scope.timeLeft = {};
     $scope.weather = [];
     $scope.getPhotos = function () {
-        $http.get('/getPhotos')
+        $http.get('/getPhotos/'+$scope.userSettings.destination)
             .then(function (response) {
                 photosArray = response.data.photos.photo;
 
@@ -53,7 +53,7 @@ app.controller("mainCtrl", function ($scope, $http, $timeout) {
     }
 
     function init() {
-        $http.get('/getPhotos')
+        $http.get('/getPhotos/'+$scope.userSettings.destination)
             .then(function (response) {
                 //Handle for errors here in response
                     $scope.photosArray = response.data.photos.photo;
